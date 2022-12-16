@@ -1,2 +1,2 @@
 # The Last Summer
- Atmosphere story with rythm-gameplay
+ Atmosphere story with rhythm-gameplay
