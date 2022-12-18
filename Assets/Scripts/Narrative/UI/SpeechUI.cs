@@ -40,7 +40,6 @@ namespace Narrative.UI
         {
             _portrait.sprite = data.portrait;
             _text.Text = data.text;
-            Open();
         }
 
     }
