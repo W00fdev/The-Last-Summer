@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpm: 110
   clip: {fileID: 8300000, guid: 19f8f8d034ab23045a77dcaf3917fa91, type: 3}
+  barPrefab: {fileID: 4913113094298749830, guid: 2c3983fa28f9d1f49b3955a5383af81c, type: 3}
   bars:
   - {fileID: 11400000, guid: 254441c9920c9554fb8961ffedf48fcb, type: 2}
   - {fileID: 11400000, guid: 254441c9920c9554fb8961ffedf48fcb, type: 2}

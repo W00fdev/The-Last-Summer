@@ -4,15 +4,15 @@ using Audio.Mixing.Data;
 
 namespace Audio.Mixing.Editor
 {
-    [CustomPropertyDrawer(typeof(Beat))]
+    [CustomPropertyDrawer(typeof(BeatData))]
     public class BeatPropertyDrawer : PropertyDrawer
     {
-        const float CELL_WIDTH = 20;
-        const float CELL_HEIGHT = 15;
+        private const float width = 20;
+        private const float height = 15;
 
-        Rect position;
-        SerializedProperty property;
-        GUIContent label;
+        private Rect position;
+        private SerializedProperty property;
+        private GUIContent label;
 
         public override void OnGUI(Rect pos, SerializedProperty prop, GUIContent lab)
         {
@@ -21,50 +21,38 @@ namespace Audio.Mixing.Editor
             label = lab;
 
             EditorGUI.BeginProperty(position, label, property);
-
             DrawLabel();
             DrawMatrix();
-
             EditorGUI.EndProperty();
         }
 
-        public override float GetPropertyHeight(SerializedProperty p, GUIContent l)
-        {
-            return 5 * CELL_HEIGHT;
-        }
+        public override float GetPropertyHeight(SerializedProperty p, GUIContent l) => 5 * height;
 
-        void DrawLabel()
+        private void DrawLabel()
         {
             EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);
-            position.y += CELL_HEIGHT;
+            position.y += height;
             EditorGUI.indentLevel = 0;
         }
 
-        void DrawMatrix()
+        private void DrawMatrix()
         {
             for (int r = 0; r < 4; r++)
-            {
                 for (int c = 0; c < 4; c++)
-                {
                     DrawCell(c, r);
-                }
-            }
         }
 
-        void DrawCell(int column, int row)
+        private void DrawCell(int column, int row)
         {
-            Vector2 cellPos = position.position;
-            cellPos.x += CELL_WIDTH * column;
-            cellPos.y += CELL_HEIGHT * row;
-
             var matrix = property.FindPropertyRelative("scheme");
             var cell = matrix.FindPropertyRelative("e" + column + row);
 
-            bool toggle = EditorGUI.Toggle(
-                new Rect(cellPos, new Vector2(CELL_WIDTH, CELL_HEIGHT)),
-                cell.floatValue == 1,
-                cell.floatValue == 2 ? EditorStyles.toggleGroup : EditorStyles.toggle
-            );
+            var rect = new Rect(position.position + new Vector2(width * column, height * row), new Vector2(width, height));
+            var enabled = cell.floatValue == 1;
+            var style = cell.floatValue == 2 ? EditorStyles.toggleGroup : EditorStyles.toggle;
+
+            // draw toggle with 3 possible values
+            var toggle = EditorGUI.Toggle(rect, enabled, style);
 
             if (toggle && cell.floatValue == 0)
                 cell.floatValue = 1;
@@ -74,12 +62,6 @@ namespace Audio.Mixing.Editor
             else
             if (toggle && cell.floatValue == 2)
                 cell.floatValue = 0;
-
-            //EditorGUI.PropertyField(
-            //    new Rect(cellPos, new Vector2(CELL_WIDTH, CELL_HEIGHT)),
-            //    cell,
-            //    GUIContent.none
-            //);
         }
     }
 }

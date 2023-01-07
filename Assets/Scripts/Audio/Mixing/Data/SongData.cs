@@ -7,6 +7,7 @@ namespace Audio.Mixing.Data
     {
         public float bpm;
         public AudioClip clip;
+        public BarStyle style;
         public BarData[] bars;
     }
 }

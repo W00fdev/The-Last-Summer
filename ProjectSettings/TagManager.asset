@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Holder
+  - Single Tick
+  - Continious Tick
   layers:
   - Default
   - TransparentFX
@@ -13,11 +16,11 @@ TagManager:
   - UI
   - 
   - 
+  - Greenzone
   - 
-  - 
-  - 
-  - 
-  - 
+  - Holder
+  - Single Tick
+  - Continious Tick
   - 
   - 
   - 
