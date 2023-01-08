@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpm: 110
   clip: {fileID: 8300000, guid: 19f8f8d034ab23045a77dcaf3917fa91, type: 3}
-  barPrefab: {fileID: 4913113094298749830, guid: 2c3983fa28f9d1f49b3955a5383af81c, type: 3}
+  style:
+    singleBeatPrefab: {fileID: 3856132863073786000, guid: 0ccc9e9d871683f4692978b821461607, type: 3}
+    continiousBeatPrefab: {fileID: 132120771900005862, guid: 7e2a535ce8010e341ba58e5c636f0451, type: 3}
+    continiousHoldPrefab: {fileID: 4578432844394566496, guid: 3a3c3e9950c4dc04aa4601de6410f9ce, type: 3}
   bars:
   - {fileID: 11400000, guid: 254441c9920c9554fb8961ffedf48fcb, type: 2}
   - {fileID: 11400000, guid: 254441c9920c9554fb8961ffedf48fcb, type: 2}
