@@ -1155,7 +1155,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.48
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1267,7 +1267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed629c09b8e97c14c905c8854298b23f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _songData: {fileID: 11400000, guid: f2e6a0257629a08438379fd1ee7fa58e, type: 2}
+  _songData: {fileID: 11400000, guid: b11d4d6c3b27cbb4ea029d408ca8692e, type: 2}
   LoadEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1430,6 +1430,14 @@ PrefabInstance:
     - target: {fileID: 3095920823503630297, guid: 91e3b262d23f3044292427a4c3613efb, type: 3}
       propertyPath: m_Name
       value: Highway
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095920823503630299, guid: 91e3b262d23f3044292427a4c3613efb, type: 3}
+      propertyPath: _barHeight
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095920823503630299, guid: 91e3b262d23f3044292427a4c3613efb, type: 3}
+      propertyPath: _maxDrawedBarsCount
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91e3b262d23f3044292427a4c3613efb, type: 3}

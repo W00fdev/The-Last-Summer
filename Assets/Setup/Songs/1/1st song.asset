@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97c070ba2036784880be5fa44db92cc, type: 3}
+  m_Name: 1st song
+  m_EditorClassIdentifier: 
+  bpm: 126
+  clip: {fileID: 8300000, guid: fe08debabc3bf8c41a965149a945de8b, type: 3}
+  style:
+    singleBeatPrefab: {fileID: 3856132863073786000, guid: 0ccc9e9d871683f4692978b821461607, type: 3}
+    continiousBeatPrefab: {fileID: 132120771900005862, guid: 7e2a535ce8010e341ba58e5c636f0451, type: 3}
+    continiousHoldPrefab: {fileID: 4578432844394566496, guid: 3a3c3e9950c4dc04aa4601de6410f9ce, type: 3}
+  bars:
+  - {fileID: 11400000, guid: 3e828bccae9e7c4408520c03066a2ce5, type: 2}
