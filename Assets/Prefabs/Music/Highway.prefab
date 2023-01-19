@@ -185,8 +185,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6262719382255595885}
-  m_Father: {fileID: 3095920823503630296}
-  m_RootOrder: 2
+  m_Father: {fileID: 9057307544417461926}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1549018352785352853
 GameObject:
@@ -217,8 +217,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7607144587039814554}
-  m_Father: {fileID: 3095920823503630296}
-  m_RootOrder: 4
+  m_Father: {fileID: 9057307544417461926}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1549018353944816188
 GameObject:
@@ -249,8 +249,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 152547001566271214}
-  m_Father: {fileID: 3095920823503630296}
-  m_RootOrder: 3
+  m_Father: {fileID: 9057307544417461926}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1549018354439764293
 GameObject:
@@ -281,8 +281,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5780883260184081926}
-  m_Father: {fileID: 3095920823503630296}
-  m_RootOrder: 1
+  m_Father: {fileID: 9057307544417461926}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1680674168142075240
 GameObject:
@@ -368,6 +368,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2755621650595484713
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9057307544417461926}
+  m_Layer: 0
+  m_Name: Tracks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9057307544417461926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2755621650595484713}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4080616197053062885}
+  - {fileID: 4080616197442680664}
+  - {fileID: 4080616197245914524}
+  - {fileID: 4080616197566517045}
+  m_Father: {fileID: 3095920823503630296}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3095920823503630297
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,10 +433,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3095920824239246817}
-  - {fileID: 4080616197053062885}
-  - {fileID: 4080616197442680664}
-  - {fileID: 4080616197245914524}
-  - {fileID: 4080616197566517045}
+  - {fileID: 9057307544417461926}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -422,10 +454,8 @@ MonoBehaviour:
   - {fileID: 4080616197442680664}
   - {fileID: 4080616197245914524}
   - {fileID: 4080616197566517045}
-  _isInversed: 1
-  _maxDrawedBarsCount: 6
-  _firstBarPosition: 1
-  _barHeight: 60
+  _markerPlaceHeight: 60
+  _initialSpawnPlaces: {x: 1, y: 6}
 --- !u!1 &3095920824239246830
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,7 +467,7 @@ GameObject:
   - component: {fileID: 3095920824239246817}
   - component: {fileID: 3095920824239246816}
   m_Layer: 0
-  m_Name: Finish Line
+  m_Name: Tick Catcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

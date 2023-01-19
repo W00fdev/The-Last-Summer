@@ -6,29 +6,20 @@ namespace Audio.Mixing.Graphics
 {
     public class ScrollingHighway : MonoBehaviour
     {
-        public const int tickPerBarCount = 4;
-
         [SerializeField]
         [Tooltip("On these transforms tracks will create")]
         private Transform[] _trackPositions;
 
+        [BoxGroup]
+        [InfoBox("Manage bar movement markers with places, which are measured by marker place height.")]
+        [ValidateInput(nameof(IsDivisibleBy4), "Marker place height must be divisible by 4.")]
         [SerializeField]
-        [Tooltip("Move direction")]
-        private bool _isInversed;
+        private int _markerPlaceHeight;
 
+        [BoxGroup]
         [SerializeField]
-        [Range(0, 10)]
-        [Tooltip("How much bars should be drawed at once")]
-        private int _maxDrawedBarsCount;
-
-        [SerializeField]
-        [Range(0, 10)]
-        [Tooltip("A position where first bar will be placed")]
-        private int _firstBarPosition;
-
-        [SerializeField]
-        [OnValueChanged("OnBarHeightChanged")]
-        private int _barHeight;
+        [MinMaxSlider(0, 10)]
+        private Vector2Int _initialSpawnPlaces;
 
         private BeatAndBarsNumerator _enumerator;
         private Track[] _tracks;
@@ -41,7 +32,7 @@ namespace Audio.Mixing.Graphics
             _tracks = new Track[_trackPositions.Length];
 
             for (int i = 0; i < _tracks.Length; i++)
-                _tracks[i] = new Track(_trackPositions[i], _barHeight);
+                _tracks[i] = new Track(_trackPositions[i], _markerPlaceHeight);
         }
 
         public void Setup(SongData data)
@@ -51,7 +42,7 @@ namespace Audio.Mixing.Graphics
             // beat and bars numerator
             _enumerator = new(SongData.bars);
             // distance the track advances each tick
-            PushDistance = _barHeight * (SongData.bpm / 60f) * Time.fixedDeltaTime * (_isInversed ? -1 : 1);
+            PushDistance = -_markerPlaceHeight * (SongData.bpm / 60f) * Time.fixedDeltaTime;
 
             Recharge();
         }
@@ -66,10 +57,10 @@ namespace Audio.Mixing.Graphics
                     track.EraseFromBelow();
 
             // add '_maxDrawedBarsCount' bars
-            for (int k = 0; k < _maxDrawedBarsCount; k++)
+            for (int k = 0; k < _initialSpawnPlaces.y; k++)
             {
                 // skip first positions if needed
-                if (k < _firstBarPosition)
+                if (k < _initialSpawnPlaces.x)
                 {
                     foreach (var track in _tracks)
                         track.PutOnTop(CreateBar());
@@ -105,12 +96,14 @@ namespace Audio.Mixing.Graphics
                 }
         }
 
-        private Bar CreateBar() => new(SongData.style, _barHeight / tickPerBarCount);
-
-        private void OnBarHeightChanged()
+        private Bar CreateBar()
         {
-            if (_barHeight % tickPerBarCount != 0)
-                throw new UnityException("Bar height must be divisible by " + tickPerBarCount);
+            if (!IsDivisibleBy4(_markerPlaceHeight))
+                throw new UnityException("Marker place height must be divisible by 4");
+
+            return new(SongData.style, _markerPlaceHeight / 4);
         }
+
+        private bool IsDivisibleBy4(int value) => value % 4 == 0;
     }
 }

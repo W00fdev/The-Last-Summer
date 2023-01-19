@@ -15,6 +15,8 @@ namespace Audio.Mixing.Graphics
             this.transform = go.transform;
             this.style = style;
             this.distanceBetweenTicks = distance;
+
+            go.AddComponent<Rigidbody2D>();
         }
 
         public void Push(float distance) => transform.localPosition += distance * Vector3.up;
